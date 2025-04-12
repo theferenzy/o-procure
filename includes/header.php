@@ -23,7 +23,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <li class="relative group">
                         <a href="#" class="hover:underline">Services</a>
                         <ul class="absolute hidden group-hover:block bg-white text-blue-900 shadow-md rounded-md mt-2 min-w-[220px] space-y-1 py-2 px-4 z-50">
-                            <li><a href="services/buyer/available_contracts.php" class="block hover:bg-blue-100 px-2 py-1 rounded">Available Contracts</a></li>
+                            <li><a href="/o-procure/pages/available_contracts.php" class="block hover:bg-blue-100 px-2 py-1 rounded">Available Contracts</a></li>
                             <li class="text-gray-500 italic px-2 py-1 rounded cursor-not-allowed" title="Login required">Place a Bid (Members only)</li>
                             <li><a href="services/etendering.php" class="block hover:bg-blue-100 px-2 py-1 rounded">E-Tendering</a></li>
                             <li><a href="services/others.php" class="block hover:bg-blue-100 px-2 py-1 rounded">Other Services</a></li>

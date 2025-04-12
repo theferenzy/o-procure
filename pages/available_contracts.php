@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../../../config/database.php'); // adjust path if needed
+require_once('../../../config/database.php');
 
 // Fetch approved contracts
 $sql = "SELECT * FROM contracts WHERE status = 'approved'";
