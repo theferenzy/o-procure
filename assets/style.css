@@ -1,0 +1,256 @@
+body {
+    background-color: #f0f2f5;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+header {
+    background-color: #012E40;
+    color: #FFD700;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: goldenrod;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #FFA500;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #012E40;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+}
+
+h1, h2 {
+    color: #013748;
+}
+
+head.title {
+    color: #fff;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Auth Pages (Login & Create Account) */
+.auth-container {
+    max-width: 400px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-container h2 {
+    color: #012E40;
+    margin-bottom: 20px;
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-container input,
+.auth-container select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+}
+
+.auth-container button {
+    background-color: #FFD700;
+    color: #012E40;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover {
+    background-color: #FFA500;
+}
+
+/* Success & Error Messages */
+.success {
+    color: green;
+    margin-top: 15px;
+}
+
+.error {
+    color: red;
+    margin-top: 15px;
+}
+
+/* Slide-in effect */
+.slide-in {
+    animation: slideIn 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+/* Fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in.delay-200 {
+    animation-delay: 0.2s;
+}
+.fade-in.delay-400 {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.group:hover .group-hover\:block {
+    display: block;
+}
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+
+ul li ul {
+    min-width: 200px;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    padding: 10px 0;
+    display: none;
+}
+
+ul li:hover ul {
+    display: block;
+}
+
+ul li ul li {
+    padding: 8px 16px;
+}
+
+ul li ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+ul li ul li a:hover {
+    text-decoration: underline;
+}
+
+.contracts-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.contract-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.contract-card:hover {
+    transform: translateY(-2px);
+}
+
+.contract-card h3 {
+    font-size: 1.25rem;
+    color: #1e40af;
+    margin-bottom: 10px;
+}
+
+.contract-card p {
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.contract-card .btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #2563eb;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.contract-card .btn:hover {
+    background-color: #1d4ed8;
+}
+
+.contract-card .italic {
+    font-style: italic;
+    color: #ef4444;
+}
