@@ -1,0 +1,47 @@
+# Ignore environment and sensitive config files
+.env
+config.php
+database.php
+
+# Ignore asset build tools (if ever used)
+node_modules/
+dist/
+build/
+
+# Ignore vendor folder if using Composer in future
+/vendor/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and dumps
+*.log
+*.sql
+*.bak
+*.zip
+*.tar.gz
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+
+# Ignore session/cache
+cache/
+tmp/
+sessions/
+
+# Ignore backups or previous versions
+*_backup.php
+*.old.php
+*.bak.php
+
+# Ignore PHPUnit or testing related (if used)
+phpunit.xml
+phpunit.xml.dist
+
+# Ignore OS-generated files
+desktop.ini
+
+# Ignore uploads only if you're okay with not backing up user files (optional)
+uploads/
