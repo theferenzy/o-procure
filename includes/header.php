@@ -26,8 +26,6 @@ if (session_status() === PHP_SESSION_NONE) {
                         class="absolute hidden group-hover:block bg-white text-blue-900 shadow-md rounded-md mt-2 min-w-[220px] space-y-1 py-2 px-4 z-50">
                         <li><a href="/o-procure/pages/available_contracts.php"
                                 class="block hover:bg-blue-100 px-2 py-1 rounded">Available Contracts</a></li>
-                        <li class="text-gray-500 italic px-2 py-1 rounded cursor-not-allowed" title="Login required">
-                            Place a Bid (Members only)</li>
                         <li><a href="services/etendering.php"
                                 class="block hover:bg-blue-100 px-2 py-1 rounded">E-Tendering</a></li>
                         <li><a href="services/others.php" class="block hover:bg-blue-100 px-2 py-1 rounded">Other
@@ -42,6 +40,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <!-- Admin-specific Nav -->
                 <li><a href="../admin/index.php" class="hover:underline">Home</a></li>
                 <li><a href="../admin/manageusers.php" class="hover:underline">Manage Users</a></li>
+                <li><a href="/o-procure/admin/review_contracts.php" class="hover:underline">Manage Contracts</a></li>
                 <li><a href="../admin/managebids.php" class="hover:underline">Manage Bids</a></li>
                 <li><a href="../admin/logout.php" class="hover:underline">Logout</a></li>
 

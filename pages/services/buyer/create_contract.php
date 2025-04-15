@@ -19,10 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $buyer_id = $_SESSION['user_id']; // assuming logged-in buyer's ID is saved
 
     $sql = "INSERT INTO contracts (buyer_id, title, description, budget, tier, deadline, status, created_at)
-            VALUES ('$buyer_id', '$title', '$description', '$budget', '$tier', '$deadline', 'Pending Approval', NOW())";
+        VALUES ('$buyer_id', '$title', '$description', '$budget', '$tier', '$deadline', 'Pending', NOW())";
 
     if ($conn->query($sql)) {
-        $message = "<p class='text-green-600'>✅ Contract created successfully! Awaiting admin approval.</p>";
+        header("Location: contract_success.php");
+        exit();
     } else {
         $message = "<p class='text-red-600'>❌ Error: " . $conn->error . "</p>";
     }

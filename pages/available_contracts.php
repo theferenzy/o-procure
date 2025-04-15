@@ -31,7 +31,7 @@ $result = mysqli_query($conn, $sql);
                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'Buyer'): ?>
                     <a href="place_bid.php?contract_id=<?php echo $row['id']; ?>" class="inline-block mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Place Bid</a>
                 <?php else: ?>
-                    <p class="text-red-500 italic mt-3">Login as a buyer to participate in this bid.</p>
+                    <p class="text-red-500 italic mt-3">Login as a supplier to participate in this bid.</p>
                 <?php endif; ?>
             </div>
         <?php endwhile; ?>
