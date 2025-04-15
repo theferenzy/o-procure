@@ -4,7 +4,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Buyer') {
     header('Location: ../../login.php');
     exit();
 }
-include '../../../includes/database.php'; // adjust path if needed
+include '../../../config/database.php';
 
 $buyer_id = $_SESSION['user_id'];
 $query = "SELECT o.*, u.full_name AS supplier_name
@@ -52,3 +52,7 @@ $result = $stmt->get_result();
     </div>
 </body>
 </html>
+
+<?php 
+include_once '../../../includes/footer.php';
+?>

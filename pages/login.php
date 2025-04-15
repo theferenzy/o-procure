@@ -27,7 +27,7 @@ if (isset($_POST['login'])) {
             if ($user['role'] == 'Admin') {
                 header("Location: ../admin/index.php");
             } elseif ($user['role'] == 'Buyer') {
-                header("Location: ../buyer/index.php");
+                header("Location: /o-procure/pages/services/buyer/index.php");
             } elseif ($user['role'] == 'Supplier') {
                 header("Location: ../supplier/index.php");
             }

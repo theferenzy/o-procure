@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../../../config/database.php');
+require_once('../config/database.php');
 
 // Fetch approved contracts
 $sql = "SELECT * FROM contracts WHERE status = 'approved'";
@@ -16,7 +16,7 @@ $result = mysqli_query($conn, $sql);
 </head>
 <body>
 
-<?php include('../../../includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
 
 <div class="contracts-container">
     <h2 class="text-2xl font-bold mb-6 text-blue-900">Available Contracts</h2>
@@ -40,6 +40,6 @@ $result = mysqli_query($conn, $sql);
     <?php endif; ?>
 </div>
 
-<?php include('../../../includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>
 </body>
 </html>

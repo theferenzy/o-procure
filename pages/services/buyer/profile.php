@@ -4,7 +4,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Buyer') {
     header('Location: ../../login.php');
     exit();
 }
-include '../../../includes/database.php';
+include '../../../config/database.php';
 
 $user_id = $_SESSION['user_id'];
 $message = "";
