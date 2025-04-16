@@ -40,7 +40,7 @@ if (isset($_POST['login'])) {
     }
 }
 ?>
-
+<title>Login</title>
 <div class="auth-container">
     <h2>Login to O-Procure</h2>
     <form method="POST" action="">

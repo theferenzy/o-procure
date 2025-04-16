@@ -2,8 +2,8 @@
 session_start();
 include '../includes/header.php';
 ?>
+<title>About Us</title>
 
-<!-- Hero Section -->
 <section class="relative bg-blue-900 text-white h-80 flex items-center justify-center overflow-hidden">
     <div class="slide-in text-center z-10">
         <h1 class="text-5xl font-bold mb-2">About O-Procure</h1>

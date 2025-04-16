@@ -25,6 +25,7 @@ $result = $conn->query($sql);
                     <th class="p-2 border">Tier</th>
                     <th class="p-2 border">Deadline</th>
                     <th class="p-2 border">Created</th>
+                    <th class="p-2 border">ITT</th>
                     <th class="p-2 border">Actions</th>
                 </tr>
             </thead>
@@ -36,11 +37,20 @@ $result = $conn->query($sql);
                         <td class="p-2 border"><?= $row['tier'] ?></td>
                         <td class="p-2 border"><?= $row['deadline'] ?></td>
                         <td class="p-2 border"><?= $row['created_at'] ?></td>
-                        <td class="p-2 border flex gap-2">
+                        <td class="p-2 border text-center">
+                            <?php if (!empty($row['itt_document'])): ?>
+                                <a href="../uploads/<?= htmlspecialchars($row['itt_document']) ?>" target="_blank" class="text-blue-700 underline hover:text-blue-900">
+                                    📄 View
+                                </a>
+                            <?php else: ?>
+                                <span class="text-gray-500 italic">None</span>
+                            <?php endif; ?>
+                        </td>
+                        <td class="p-2 border flex flex-col gap-1">
                             <a href="contract_action.php?id=<?= $row['contract_id'] ?>&action=approve"
-                               class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">✅ Approve</a>
+                               class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 text-center">✅ Approve</a>
                             <a href="contract_action.php?id=<?= $row['contract_id'] ?>&action=reject"
-                               class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">❌ Reject</a>
+                               class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 text-center">❌ Reject</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>
