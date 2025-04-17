@@ -15,7 +15,7 @@ $buyerName = $_SESSION['fullname'] ?? 'Valued Buyer';
 
 <head>
     <meta charset="UTF-8">
-    <title>Buyer Dashboard - O-Procure</title>
+    <title>Buyer Dashboard</title>
     <link rel="stylesheet" href="/o-procure/assets/style.css?v=<?= time() ?>">
 </head>
 

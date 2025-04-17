@@ -378,3 +378,46 @@ ul li ul li a:hover {
     font-size: 22px;
     cursor: pointer;
 }
+
+/* Universal Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #012E40;
+    color: #FFD700;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ccc;
+}
+
+table tbody tr:hover {
+    background-color: #f4f8fb;
+    transition: background-color 0.3s;
+}
+
+table td a.btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+}
+
+table th:first-child,
+table td:first-child {
+    border-left: none;
+}
+
+table th:last-child,
+table td:last-child {
+    border-right: none;
+}

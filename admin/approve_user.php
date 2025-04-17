@@ -1,18 +1,30 @@
 <?php
-include '../config/database.php';
+session_start();
 
-if (isset($_GET['id'])) {
-    $user_id = intval($_GET['id']);
-    
-    // Update status to 'Active' when approved
-    $sql = "UPDATE users SET status = 'Active' WHERE user_id = $user_id";
-    if (mysqli_query($conn, $sql)) {
-        echo "User approved successfully.";
-    } else {
-        echo "Error updating record: " . mysqli_error($conn);
-    }
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+    header("Location: ../pages/login.php");
+    exit();
+}
+
+require_once('../config/database.php');
+
+$user_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$reactivate = isset($_GET['reactivate']) ? true : false;
+
+if ($user_id <= 0) {
+    $_SESSION['error'] = "Invalid user ID.";
+    header("Location: manageusers.php");
+    exit();
+}
+
+$status = $reactivate ? 'Active' : 'Active';
+$sql = "UPDATE users SET status = '$status' WHERE user_id = '$user_id'";
+
+if (mysqli_query($conn, $sql)) {
+    $_SESSION['success'] = $reactivate ? "✅ User reactivated successfully." : "✅ User approved successfully.";
+} else {
+    $_SESSION['error'] = "❌ Failed to update user.";
 }
 
 header("Location: manageusers.php");
 exit();
-?>
