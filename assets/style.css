@@ -11,6 +11,10 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+main {
+    flex: 1;
+}
+
 .logo {
     width: 150px;
     height: 150px;
@@ -305,4 +309,72 @@ ul li ul li a:hover {
     margin-bottom: 1rem;
     font-weight: 500;
     color: red;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.onboarding-intro p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.onboarding-steps ol {
+    margin-left: 20px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.onboarding-steps li {
+    margin-bottom: 8px;
+}
+
+.onboarding-links {
+    margin-top: 30px;
+}
+
+.onboarding-links .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-right: 15px;
+    background-color: #004080;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.onboarding-links .btn.secondary {
+    background-color: #ccc;
+    color: #333;
+}
+.onboarding-links .btn.secondary:hover {
+    background-color: #bbb;
+}
+.onboarding-links .btn:hover {
+    background-color: #003366;
+}
+
+/* Modal styling */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+}
+.close {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
 }

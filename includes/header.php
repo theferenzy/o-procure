@@ -33,13 +33,14 @@ if (session_status() === PHP_SESSION_NONE) {
                     </ul>
                 </li>
 
-                <li><a href="register.php" class="hover:underline">Onboarding</a></li>
+                <li><a href="/o-procure/pages/onboarding/prequalify.php" class="hover:underline">Onboarding</a></li>
                 <li><a href="login.php" class="hover:underline">Login</a></li>
 
                 <?php elseif ($_SESSION['role'] === 'Admin'): ?>
                 <!-- Admin-specific Nav -->
                 <li><a href="../admin/index.php" class="hover:underline">Home</a></li>
                 <li><a href="../admin/manageusers.php" class="hover:underline">Manage Users</a></li>
+                <li><a href="../admin/manage_suppliers.php" class="hover:underline">Manage Suppliers</a></li>
                 <li><a href="/o-procure/admin/review_contracts.php" class="hover:underline">Manage Contracts</a></li>
                 <li><a href="../admin/managebids.php" class="hover:underline">Manage Bids</a></li>
                 <li><a href="../admin/logout.php" class="hover:underline">Logout</a></li>
@@ -47,16 +48,17 @@ if (session_status() === PHP_SESSION_NONE) {
                 <?php elseif ($_SESSION['role'] === 'Buyer'): ?>
                 <!-- Buyer-specific Nav -->
                 <li><a href="/o-procure/pages/services/buyer/index.php" class="hover:underline">Home</a></li>
-                <li><a href="/o-procure/pages/services/buyer/myorders.php" class="hover:underline">My Orders</a></li>
+                <li><a href="/o-procure/pages/services/buyer/managebids.php" class="hover:underline">Supplier Bids</a></li>
                 <li><a href="/o-procure/pages/services/buyer/profile.php" class="hover:underline">Profile</a></li>
                 <li><a href="/o-procure/pages/services/buyer/logout.php" class="hover:underline">Logout</a></li>
 
                 <?php elseif ($_SESSION['role'] === 'Supplier'): ?>
                 <!-- Supplier-specific Nav -->
-                <li><a href="index.php" class="hover:underline">Home</a></li>
-                <li><a href="mysupplies.php" class="hover:underline">My Supplies</a></li>
-                <li><a href="profile.php" class="hover:underline">Profile</a></li>
-                <li><a href="../logout.php" class="hover:underline">Logout</a></li>
+                <li><a href="/o-procure/pages/onboarding/index.php" class="hover:underline">Home</a></li>
+                <li><a href="/o-procure/pages/onboarding/contractbidding.php" class="hover:underline">Available Contracts</a></li>
+                <li><a href="/o-procure/pages/onboarding/mybids.php" class="hover:underline">Bids History</a></li>               
+                <li><a href="/o-procure/pages/onboarding/myprofile.php" class="hover:underline">Profile</a></li>
+                <li><a href="../../logout.php" class="hover:underline">Logout</a></li>
                 <?php endif; ?>
             </ul>
         </nav>

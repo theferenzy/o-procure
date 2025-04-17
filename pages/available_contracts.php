@@ -21,7 +21,7 @@ $result = mysqli_query($conn, $sql);
     <?php include('../includes/header.php'); ?>
 
     <div class="contracts-container">
-        <h2 class="text-2xl font-bold mb-6 text-blue-900">Available Contracts</h2>
+        <h2 class="text-2xl font-bold mb-6 text-blue-900">📄 Available Contracts</h2>
 
         <?php if (mysqli_num_rows($result) > 0): ?>
         <?php while($row = mysqli_fetch_assoc($result)): ?>

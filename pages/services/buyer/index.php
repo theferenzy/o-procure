@@ -12,11 +12,13 @@ $buyerName = $_SESSION['fullname'] ?? 'Valued Buyer';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Buyer Dashboard - O-Procure</title>
     <link rel="stylesheet" href="/o-procure/assets/style.css?v=<?= time() ?>">
 </head>
+
 <body>
     <?php include '../../../includes/header.php'; ?>
 
@@ -24,11 +26,15 @@ $buyerName = $_SESSION['fullname'] ?? 'Valued Buyer';
         <h1 class="text-3xl font-bold mb-4">Welcome, <?= htmlspecialchars($buyerName) ?> 👋</h1>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            <a href="create_contract.php" class="bg-blue-900 text-white p-6 rounded shadow hover:bg-blue-800 transition">
+            <a href="create_contract.php"
+                class="bg-blue-900 text-white p-6 rounded shadow hover:bg-blue-800 transition">
                 📝 Create New Contract
             </a>
-            <a href="myorders.php" class="bg-green-700 text-white p-6 rounded shadow hover:bg-green-600 transition">
-                📦 My Orders
+            <a href="managebids.php" class="bg-blue-600 text-white p-6 rounded shadow hover:bg-blue-500 transition">
+                📄 Manage Contracts
+            </a>
+            <a href="mybids.php" class="bg-green-700 text-white p-6 rounded shadow hover:bg-green-600 transition">
+                📦 Contracts Archive
             </a>
             <a href="profile.php" class="bg-yellow-600 text-white p-6 rounded shadow hover:bg-yellow-500 transition">
                 👤 Profile
@@ -39,6 +45,7 @@ $buyerName = $_SESSION['fullname'] ?? 'Valued Buyer';
         </div>
     </main>
 </body>
+
 </html>
 
 <?php

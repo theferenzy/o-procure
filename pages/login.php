@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include '../includes/header.php';
 include '../config/database.php';
 
@@ -29,7 +30,7 @@ if (isset($_POST['login'])) {
             } elseif ($user['role'] == 'Buyer') {
                 header("Location: /o-procure/pages/services/buyer/index.php");
             } elseif ($user['role'] == 'Supplier') {
-                header("Location: ../supplier/index.php");
+                header("Location: /o-procure/pages/onboarding/index.php");
             }
             exit;
         } else {
