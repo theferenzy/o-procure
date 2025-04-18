@@ -7,6 +7,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
 }
 
 require_once '../config/database.php';
+require_once '../includes/functions.php'; 
 
 if (!isset($_GET['id'])) {
     header("Location: manage_suppliers.php");
@@ -31,6 +32,10 @@ if (!$supplier) {
 // Update status
 $update = "UPDATE supplier_profiles SET status = 'Rejected' WHERE id = $id";
 if (mysqli_query($conn, $update)) {
+    $admin_id = $_SESSION['user_id'];
+    $action = "Rejected supplier ID: {$supplier['supplier_id']} - {$supplier['full_name']}";
+    log_admin_action($conn, $admin_id, $action);
+
     // Send rejection email
     $to = $supplier['email'];
     $subject = "O-Procure: Prequalification Rejected ❌";

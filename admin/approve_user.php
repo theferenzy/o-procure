@@ -7,6 +7,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
 }
 
 require_once('../config/database.php');
+require_once('../includes/functions.php');
 
 $user_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $reactivate = isset($_GET['reactivate']) ? true : false;
@@ -17,10 +18,14 @@ if ($user_id <= 0) {
     exit();
 }
 
-$status = $reactivate ? 'Active' : 'Active';
+$status = 'Active'; // Whether it's approve or reactivate, set to 'Active'
 $sql = "UPDATE users SET status = '$status' WHERE user_id = '$user_id'";
 
 if (mysqli_query($conn, $sql)) {
+    // ✅ Log the admin action
+    $action = $reactivate ? "Reactivated user ID: $user_id" : "Approved user ID: $user_id";
+    log_admin_action($conn, $_SESSION['user_id'], $action);
+
     $_SESSION['success'] = $reactivate ? "✅ User reactivated successfully." : "✅ User approved successfully.";
 } else {
     $_SESSION['error'] = "❌ Failed to update user.";

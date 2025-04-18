@@ -29,6 +29,8 @@ if (session_status() === PHP_SESSION_NONE) {
                     </li>
                     <li><a href="/o-procure/pages/onboarding/prequalify.php" class="hover:underline">Onboarding</a></li>
                     <li><a href="/o-procure/pages/login.php" class="hover:underline">Login</a></li>
+                    <li><a href="/o-procure/pages/contact.php" class="hover:underline">Support</a></li>
+
 
                 <?php elseif ($_SESSION['role'] === 'Admin'): ?>
                     <!-- Admin Dropdown Navigation -->
@@ -41,7 +43,9 @@ if (session_status() === PHP_SESSION_NONE) {
                             <li><a href="/o-procure/admin/review_contracts.php" class="block hover:bg-blue-100 px-2 py-1 rounded">Manage Contracts</a></li>
                             <li><a href="/o-procure/admin/managebids.php" class="block hover:bg-blue-100 px-2 py-1 rounded">Manage Bids</a></li>
                             <li><a href="/o-procure/admin/track_workflow.php" class="block hover:bg-blue-100 px-2 py-1 rounded">Track Workflow</a></li>
-                            <li><a href="/o-procure/admin/logout.php" class="block hover:bg-blue-100 px-2 py-1 rounded text-red-600">Logout</a></li>
+                            <li><a href="/o-procure/admin/view_logs.php" class="block hover:bg-blue-100 px-2 py-1 rounded">View Audit Logs</a></li>
+                            <li><a href="/o-procure/admin/contact_messages.php" class="block hover:bg-blue-100 px-2 py-1 rounded">Help & Support</a></li>
+                            <li><a href="/o-procure/admin/logout.php" class="block hover:bg-blue-100 px-2 py-1rounded text-red-600">Logout</a></li>
                         </ul>
                     </li>
 
@@ -51,6 +55,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <li><a href="/o-procure/pages/services/buyer/managebids.php" class="hover:underline">Manage Bids</a></li>
                     <li><a href="/o-procure/pages/services/buyer/mybids.php" class="hover:underline">Contract Archive</a></li>
                     <li><a href="/o-procure/pages/services/buyer/profile.php" class="hover:underline">Profile</a></li>
+                    <li><a href="/o-procure/pages/contact.php" class="hover:underline">Support</a></li>
                     <li><a href="/o-procure/pages/services/buyer/logout.php" class="hover:underline">Logout</a></li>
 
                 <?php elseif ($_SESSION['role'] === 'Supplier'): ?>
@@ -59,6 +64,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <li><a href="/o-procure/pages/onboarding/contractbidding.php" class="hover:underline">Available Contracts</a></li>
                     <li><a href="/o-procure/pages/onboarding/mybids.php" class="hover:underline">Bids History</a></li>
                     <li><a href="/o-procure/pages/onboarding/myprofile.php" class="hover:underline">Profile</a></li>
+                    <li><a href="/o-procure/pages/contact.php" class="hover:underline">Support</a></li>
                     <li><a href="../../logout.php" class="hover:underline">Logout</a></li>
                 <?php endif; ?>
             </ul>

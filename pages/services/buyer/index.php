@@ -36,12 +36,6 @@ $buyerName = $_SESSION['fullname'] ?? 'Valued Buyer';
             <a href="mybids.php" class="bg-green-700 text-white p-6 rounded shadow hover:bg-green-600 transition">
                 📦 Contracts Archive
             </a>
-            <a href="profile.php" class="bg-yellow-600 text-white p-6 rounded shadow hover:bg-yellow-500 transition">
-                👤 Profile
-            </a>
-            <a href="logout.php" class="bg-red-600 text-white p-6 rounded shadow hover:bg-red-500 transition">
-                🚪 Logout
-            </a>
         </div>
     </main>
 </body>

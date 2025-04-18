@@ -421,3 +421,84 @@ table th:last-child,
 table td:last-child {
     border-right: none;
 }
+
+/* ================= FORM STYLING ================= */
+form {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1a202c;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form input[type="password"],
+form input[type="date"],
+form input[type="file"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+form .btn,
+form button {
+    background-color: goldenrod;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form .btn:hover,
+form button:hover {
+    background-color: #1e40af;
+}
+
+
+.success {
+    color: #16a34a;
+    background-color: #dcfce7;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.error {
+    color: #b91c1c;
+    background-color: #fee2e2;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}

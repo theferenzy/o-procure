@@ -7,6 +7,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
 }
 
 require_once '../config/database.php';
+require_once '../includes/functions.php'; 
 
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header("Location: manage_suppliers.php?error=Invalid request");
@@ -33,7 +34,9 @@ if (!$supplier) {
 $update_sql = "UPDATE supplier_profiles SET status = 'Approved' WHERE id = $id";
 
 if (mysqli_query($conn, $update_sql)) {
-    // Send email (optional)
+    //Log the action
+    log_admin_action($conn, $_SESSION['user_id'], "Approved supplier ID: {$supplier['supplier_id']} - {$supplier['company_name']}");
+
     $to = $supplier['email'];
     $subject = "O-Procure Prequalification Approved ✅";
     $message = "Dear " . $supplier['full_name'] . ",\n\nYour prequalification has been approved.\n\nYou can now log in to O-Procure and begin bidding for contracts.\n\nBest regards,\nO-Procure Admin Team";
