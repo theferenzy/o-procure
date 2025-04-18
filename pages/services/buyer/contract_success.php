@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once('../../../includes/session_security.php');
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Buyer') {
     header("Location: ../../login.php");
     exit();
@@ -28,7 +29,7 @@ include '../../../includes/header.php';
     <div class="flex justify-center space-x-4">
         <a href="index.php" class="bg-blue-900 text-white px-5 py-2 rounded hover:bg-blue-800">🏠 Back to Dashboard</a>
         <a href="create_contract.php" class="bg-green-700 text-white px-5 py-2 rounded hover:bg-green-600">➕ Create Another</a>
-        <a href="myorders.php" class="bg-yellow-600 text-white px-5 py-2 rounded hover:bg-yellow-500">📦 View My Orders</a>
+        <a href="mybids.php" class="bg-yellow-600 text-white px-5 py-2 rounded hover:bg-yellow-500">📦 View My Orders</a>
     </div>
 </div>
 

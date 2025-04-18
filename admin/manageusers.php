@@ -1,5 +1,7 @@
 <?php
-session_start();
+require_once('../includes/session_security.php');
+// Check if the user is logged in and has the Admin role
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
     header("Location: ../pages/login.php");
     exit();

@@ -1,3 +1,4 @@
+<?php require_once('../includes/session_security.php'); ?>
 <?php include '../includes/header.php'; ?>
 <?php include '../config/database.php'; ?>
 

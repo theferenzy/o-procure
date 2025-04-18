@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once('../includes/session_security.php');
+
 include '../includes/header.php';
 ?>
 <title>About Us</title>

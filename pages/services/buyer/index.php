@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once('../../../includes/session_security.php');
 
 // Redirect to login if not logged in or not a buyer
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Buyer') {

@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once('../../../includes/session_security.php');
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Buyer') {
     header('Location: /o-procure/pages/login.php');
     exit();
@@ -10,16 +11,12 @@ include('../../../includes/header.php');
 
 $buyer_id = $_SESSION['user_id'];
 
-// Fetch all relevant bids for this buyer's contracts
+// ✅ Fetch ALL bids related to this buyer's contracts
 $sql = "SELECT b.*, c.title, c.budget, c.deadline, u.full_name, u.company_name
         FROM bids b
         JOIN contracts c ON b.contract_id = c.contract_id
         JOIN users u ON b.supplier_id = u.user_id
-        WHERE c.buyer_id = '$buyer_id' 
-        AND (
-            b.bid_status IN ('Approved', 'Rejected', 'InfoRequested')
-            OR (b.bid_status = 'Pending' AND b.updated_at IS NOT NULL)
-        )
+        WHERE c.buyer_id = '$buyer_id'
         ORDER BY b.created_at DESC";
 
 $result = mysqli_query($conn, $sql);
@@ -78,21 +75,25 @@ $result = mysqli_query($conn, $sql);
                 </td>
                 <td>
                     <?php
-                        switch ($row['bid_status']) {
-                            case 'Approved':
-                                echo '<span style="color:green; font-weight:bold;">Awarded</span>';
-                                break;
-                            case 'Rejected':
-                                echo '<span style="color:red; font-weight:bold;">Rejected</span>';
-                                break;
-                            case 'InfoRequested':
-                                echo '<span style="color:orange; font-weight:bold;">Info Requested</span>';
-                                break;
-                            case 'Pending':
-                                echo '<span style="color:blue; font-weight:bold;">Updated & Pending</span>';
-                                break;
-                            default:
-                                echo htmlspecialchars($row['bid_status']);
+                        if ($row['is_awarded'] == 1) {
+                            echo '<span style="color:green; font-weight:bold;">Awarded</span>';
+                        } else {
+                            switch ($row['bid_status']) {
+                                case 'Approved':
+                                    echo '<span style="color:blue; font-weight:bold;">(A) - Pending BD</span>';
+                                    break;
+                                case 'Rejected':
+                                    echo '<span style="color:red; font-weight:bold;">Rejected</span>';
+                                    break;
+                                case 'InfoRequested':
+                                    echo '<span style="color:orange; font-weight:bold;">Info Requested</span>';
+                                    break;
+                                case 'Pending':
+                                    echo '<span style="color:blue; font-weight:bold;">Pending</span>';
+                                    break;
+                                default:
+                                    echo htmlspecialchars($row['bid_status']);
+                            }
                         }
                     ?>
                 </td>
@@ -101,8 +102,7 @@ $result = mysqli_query($conn, $sql);
                         <span class="btn awarded" style="background-color: green; color: white; pointer-events: none;">✅ Awarded</span>
                     <?php else: ?>
                         <a href="award_contract.php?bid_id=<?= $row['bid_id'] ?>&contract_id=<?= $row['contract_id'] ?>" class="btn approve">🏆 Award</a>
-                        <a href="bid_action.php?bid_id=<?= $row['bid_id'] ?>&action=reject" class="btn reject"
-                            onclick="return confirm('Are you sure you want to reject this bid?');">❌ Reject</a>
+                        <a href="bid_action.php?bid_id=<?= $row['bid_id'] ?>&action=reject" class="btn reject" onclick="return confirm('Are you sure you want to reject this bid?');">❌ Reject</a>
                         <a href="bid_action.php?bid_id=<?= $row['bid_id'] ?>&action=requestinfo" class="btn info">ℹ️ Request Info</a>
                     <?php endif; ?>
                 </td>

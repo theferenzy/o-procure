@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once('../../includes/session_security.php');
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Supplier') {
     header('Location: /o-procure/pages/login.php');
     exit();
@@ -7,6 +8,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Supplier') {
 
 require_once('../../config/database.php');
 include('../../includes/header.php');
+
+$supplier_id = $_SESSION['user_id'];
+
+// Check if supplier is verified
+$verified_result = mysqli_query($conn, "SELECT status FROM supplier_profiles WHERE supplier_id = '$supplier_id' AND status = 'Approved'");
+$is_verified = mysqli_num_rows($verified_result) > 0;
 
 // Fetch approved contracts and buyer info
 $sql = "SELECT contracts.*, users.full_name AS buyer_name, users.company_name 
@@ -31,6 +38,12 @@ $result = mysqli_query($conn, $sql);
 
 <div class="container">
     <h2 class="page-title">📑 Approved Contracts Available for Bidding</h2>
+
+    <?php if ($is_verified): ?>
+        <p class="success" style="color:gold; font-weight:bold; font-size:16px;">⭐ Verified Supplier</p>
+    <?php else: ?>
+        <p class="error">⚠️ You must be approved by the admin before placing any bids.</p>
+    <?php endif; ?>
 
     <?php if ($result && mysqli_num_rows($result) > 0): ?>
         <?php while ($row = mysqli_fetch_assoc($result)): ?>
@@ -60,7 +73,11 @@ $result = mysqli_query($conn, $sql);
                     <p class="text-warning">⚠️ No ITT document attached</p>
                 <?php endif; ?>
 
-                <a href="place_bid.php?contract_id=<?= $row['contract_id'] ?>" class="btn secondary">📤 Place Bid</a>
+                <?php if ($is_verified): ?>
+                    <a href="place_bid.php?contract_id=<?= $row['contract_id'] ?>" class="btn secondary">📤 Place Bid</a>
+                <?php else: ?>
+                    <button class="btn secondary" disabled style="background-color: #ccc; cursor: not-allowed;">📤 Place Bid (Disabled)</button>
+                <?php endif; ?>
             </div>
         <?php endwhile; ?>
     <?php else: ?>

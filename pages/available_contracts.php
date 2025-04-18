@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once('../includes/session_security.php');
 require_once('../config/database.php');
 
 // Fetch approved contracts

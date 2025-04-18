@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once('../../includes/session_security.php');
 require_once('../../config/database.php');
 include('../../includes/header.php');
 
@@ -21,6 +21,8 @@ $isSupplier = isset($_SESSION['role']) && $_SESSION['role'] === 'Supplier';
     <meta charset="UTF-8">
     <title>E-Tendering - O-Procure</title>
     <link rel="stylesheet" href="/o-procure/assets/style.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="/o-procure/assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/o-procure/assets/tailwindcss/tailwind.min.css?v=<?= time() ?>">
 </head>
 <body>
 

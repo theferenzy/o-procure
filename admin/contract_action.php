@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once('../includes/session_security.php');
+
 include '../config/database.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {

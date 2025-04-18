@@ -28,7 +28,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         </ul>
                     </li>
                     <li><a href="/o-procure/pages/onboarding/prequalify.php" class="hover:underline">Onboarding</a></li>
-                    <li><a href="login.php" class="hover:underline">Login</a></li>
+                    <li><a href="/o-procure/pages/login.php" class="hover:underline">Login</a></li>
 
                 <?php elseif ($_SESSION['role'] === 'Admin'): ?>
                     <!-- Admin Dropdown Navigation -->
