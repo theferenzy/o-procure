@@ -1,5 +1,4 @@
 <?php
-// Include session security to ensure the user is authenticated and authorized
 require_once('../../includes/session_security.php');
 
 // Redirect to login if the user is not a Supplier
@@ -8,7 +7,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Supplier') {
     exit();
 }
 
-// Include database connection
 require_once('../../config/database.php');
 
 // Handle form submission
@@ -18,11 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tax_id = mysqli_real_escape_string($conn, $_POST['tax_id']); // Sanitize tax ID input
     $compliance = mysqli_real_escape_string($conn, $_POST['compliance']); // Sanitize compliance certificate input
 
-    // Define the directory for uploading supplier documents
+    // Directory for uploading supplier documents
     $target_dir = "../../uploads/supplier_docs/";
     if (!is_dir($target_dir)) mkdir($target_dir, 0777, true); // Create the directory if it doesn't exist
 
-    // Generate unique file names for uploaded documents
+    // Unique file names for uploaded documents
     $cac_file = $target_dir . 'cac_' . uniqid() . '_' . basename($_FILES['cac']['name']);
     $portfolio_file = $target_dir . 'portfolio_' . uniqid() . '_' . basename($_FILES['portfolio']['name']);
 
@@ -54,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Supplier Pre-Qualification - O-Procure</title>
-    <!-- Include stylesheets -->
     <link rel="stylesheet" href="/o-procure/assets/style.css">
     <link rel="stylesheet" href="/o-procure/assets/fontawesome/css/all.min.css?v=<?= time() ?>">
     <link rel="stylesheet" href="/o-procure/assets/tailwindcss/tailwind.min.css?v=<?= time() ?>">
@@ -62,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-    <!-- Include the header -->
     <?php include('../../includes/header.php'); ?>
 
     <div class="container">
@@ -102,7 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 
-    <!-- Include the footer -->
     <?php include('../../includes/footer.php'); ?>
 </body>
 

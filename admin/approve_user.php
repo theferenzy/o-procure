@@ -22,7 +22,7 @@ $status = 'Active'; // Whether it's approve or reactivate, set to 'Active'
 $sql = "UPDATE users SET status = '$status' WHERE user_id = '$user_id'";
 
 if (mysqli_query($conn, $sql)) {
-    // ✅ Log the admin action
+    // Fetch user info for confirmation
     $action = $reactivate ? "Reactivated user ID: $user_id" : "Approved user ID: $user_id";
     log_admin_action($conn, $_SESSION['user_id'], $action);
 

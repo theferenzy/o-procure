@@ -144,11 +144,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $is_verified && $contract) {
     <?php endif; ?>
 </div>
 
-<!-- Include footer -->
 <?php include('../../includes/footer.php'); ?>
 </body>
 </html><?php
-// Include session security to ensure the user is authenticated and authorized
 require_once('../../includes/session_security.php');
 
 // Redirect to login if the user is not a Supplier
@@ -157,7 +155,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Supplier') {
     exit();
 }
 
-// Include necessary files for database connection and utility functions
+
 require_once('../../includes/functions.php');
 require_once('../../config/database.php');
 include('../../includes/header.php');
@@ -238,7 +236,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $is_verified && $contract) {
 <head>
     <meta charset="UTF-8">
     <title>Place Bid</title>
-    <!-- Include stylesheets -->
     <link rel="stylesheet" href="/o-procure/assets/style.css?v=<?= time() ?>">
     <link rel="stylesheet" href="/o-procure/assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/o-procure/assets/tailwindcss/tailwind.min.css">
@@ -293,7 +290,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $is_verified && $contract) {
     <?php endif; ?>
 </div>
 
-<!-- Include footer -->
+
 <?php include('../../includes/footer.php'); ?>
 </body>
 </html>
